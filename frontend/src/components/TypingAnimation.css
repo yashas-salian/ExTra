@@ -1,0 +1,29 @@
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 100%;
+  }
+  85% {
+    width: 100%; 
+  }
+  100% {
+    width: 100%; /* Ensures the text stays fully visible */
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.animate-typing {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 4px solid white;
+  animation: typing 7s steps(26) forwards, blink 1s step-end 7s; /* Blink ends when typing ends */
+}
+  
