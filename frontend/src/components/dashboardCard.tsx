@@ -44,7 +44,7 @@ export const DashboardCard=()=>{
                                     <label className="block mb-2 text-lg font-medium text-white pt-1">&#8377;</label>
                                     <input
                                           type="text"
-                                          className="bg-stone-700 border border-stone-600 text-green-900 p-2 w-1/3  rounded-lg"
+                                          className="bg-stone-700 border border-stone-600 text-white p-2 w-1/3  rounded-lg"
                                           onChange={(e)=>{
                                             setBudget(c=>({
                                               ...c,

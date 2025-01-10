@@ -43,6 +43,8 @@ expensesRouter.post('/addExpense',async (c) => {
         other : 0,
         budget :body.budget ?? 0,
         total:0,
+        spent:0,
+        balance:body.budget ?? 0,
         userId: Number(userid)
       }
     })
@@ -91,12 +93,14 @@ expensesRouter.post('/updateExpense',async (c) => {
       })
       const total = (expense.food ?? 0) + (expense.travel ?? 0) + (expense.study ?? 0) +
     (expense.rent ?? 0) + (expense.other ?? 0);
+    const balance=(expense.budget || 0)-total
     const udpatedExpense=await prisma.expenses.update({
       where:{
         userId: Number(userid)
       },
       data:{
-        total: total
+        total: total,
+        balance: balance
       }
     })
       return c.json({

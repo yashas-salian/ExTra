@@ -4,14 +4,14 @@ import axios from "axios"
 import { BACKEND_URL } from "../config";
 import { useNavigate } from "react-router-dom";
 import { TypewriterEffect } from "./ui/typewriter-effect";
+import {SignupInput} from "@yashas40/modules"
 
 export const Authup = () => {
-  const [userDetails, setuserDetails]=useState({
-    username:"",
+  const [userDetails, setuserDetails]=useState<SignupInput>({
+    name:"",
     email:"",
     password:""
   })
-  const [checked,setChecked] = useState(false)
   const navigate=useNavigate()
     return (
       <section className="bg-stone-800 min-h-screen flex items-center justify-center">
@@ -30,7 +30,7 @@ export const Authup = () => {
                   <input className="bg-stone-600 border border-gray-300 text-cyan-600 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-[400px] p-2.5" placeholder="john Doe" onChange={(e)=>{
                     setuserDetails(c=>({
                       ...c,
-                      username: e.target.value
+                      name: e.target.value
                     }))
                   }}/>
                 </div>
@@ -58,7 +58,11 @@ export const Authup = () => {
                   onClick={async(e)=>{
                     e.preventDefault()
                     try{
-                            const response= await axios.post(`${BACKEND_URL}/api/v1/user/signup`,userDetails)
+                            const response= await axios.post(`${BACKEND_URL}/api/v1/user/signup`,{
+                              username:userDetails.name,
+                              email:userDetails.email,
+                              password:userDetails.password,
+                            })
                             const jwt=response.data.token
                             if(jwt){
                               localStorage.setItem('token',jwt)

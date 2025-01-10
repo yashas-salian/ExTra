@@ -2,6 +2,8 @@ import { Hono } from 'hono'
 import { PrismaClient } from '@prisma/client/edge'
 import { withAccelerate } from '@prisma/extension-accelerate'
 import { sign } from 'hono/jwt'
+import { signinSchema, signupSchema } from '@ombaji124/common'
+import { signupinput } from '@yashas40/modules'
 
 export const userRouter = new Hono<{
   Bindings :{
@@ -20,6 +22,13 @@ datasourceUrl: c.env.DATABASE_URL,
 }).$extends(withAccelerate())
 
   const body= await c.req.json()
+  const {success}= signupinput.safeParse(body)
+  if (!success){
+    c.status(403)
+    return c.json({
+      message: "SignUp failed in parsing"
+    })
+  }
   try{
     const user= await prisma.user.create({
       data:{
@@ -44,6 +53,13 @@ const prisma = new PrismaClient({
 datasourceUrl: c.env.DATABASE_URL,
 }).$extends(withAccelerate())
   const body= await c.req.json()
+  const {success}= signupinput.safeParse(body)
+  if (!success){
+    c.status(403)
+    return c.json({
+      message: "SignIn failed"
+    })
+  }
   try{
       const user = await prisma.user.findUnique({
         where:{

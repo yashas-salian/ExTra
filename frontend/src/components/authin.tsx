@@ -4,9 +4,10 @@ import axios from 'axios'
 import { BACKEND_URL } from "../config";
 import { useNavigate } from "react-router-dom";
 import { TypewriterEffect } from "./ui/typewriter-effect";
+import {SigninInput} from "@yashas40/modules"
 
 export const Authin = () => {
-  const [userDetails, setuserDetails]=useState({
+  const [userDetails, setuserDetails]=useState<SigninInput>({
       email:"",
       password:""
     })
