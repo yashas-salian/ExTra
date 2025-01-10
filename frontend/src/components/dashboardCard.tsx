@@ -1,10 +1,8 @@
-import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import {
   Drawer,
   DrawerClose,
   DrawerContent,
-  DrawerDescription,
   DrawerFooter,
   DrawerHeader,
   DrawerTitle,
@@ -21,7 +19,6 @@ export const DashboardCard=()=>{
   const [budget, setBudget] = useState<data>({
     "budget":"0"
   });
-  const navigate = useNavigate()
     return <div className="relative flex flex-col my-6 bg-stone-800 shadow-sm border border-slate-200 rounded-lg w-2/5 transition-all duration-200 hover:border-cyan-600 hover:scale-105" >
               <div className="p-10">
                 <h5 className="mb-2 text-white text-2xl font-bold">

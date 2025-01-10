@@ -1,8 +1,7 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import extraLogo from './ExTra.png';
 
 export const Navbar=()=>{
-    const navigate= useNavigate()
     return <nav className="border-gray-200 bg-stone-900 transtition-all duration-200 hover:border-cyan-400">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <Link to={"/"}>
