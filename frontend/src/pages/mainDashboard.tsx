@@ -60,7 +60,7 @@ export const Maindashboard = () => {
             <div className="absolute top-20 right-24 w-fit p-2 border border-gray-500 rounded font-bold text-white transition-all duration-200 hover:text-cyan-500 hover:border-cyan-600 hover:translate-x-1">
                 {mmddyyyy}
             </div>
-            <div className="pt-20 flex justify-evenly ">
+            <div className="pt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-4 px-6">
                 <div className="">
                     <BudgetCard label="Users" amount={100} />
                 </div>
@@ -89,7 +89,7 @@ export const Maindashboard = () => {
             <div className="absolute top-20 right-24 w-fit p-2 border border-gray-500 rounded font-bold text-white transition-all duration-200 hover:text-cyan-500 hover:border-cyan-600 hover:translate-x-1">
                 {mmddyyyy}
             </div>
-            <div className="pt-20 flex justify-evenly ">
+            <div className="pt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-4 px-6">
                 <div className="">
                     <BudgetCard label="Users" amount={100} />
                 </div>
@@ -103,11 +103,11 @@ export const Maindashboard = () => {
                     <BudgetCard label="Balance" amount={(expense?.balance) ?? 0} total={expense?.budget?? 0}/>
                 </div>
             </div>
-            <div className="flex gap-24">
-                <div className="w-2/4 pt-16 pl-24 mb-10">
+            <div className="  grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4 px-6 flex gap-24 pb-4">
+                <div className="pt-10">
                     <BarGraph />
                 </div>
-                <div className="w-2/5 pt-16 mb-10">
+                <div className="pt-10">
                     <Spendcard />
                     <div className="pl-2 mt-4 flex justify-center">
                 <Drawer >

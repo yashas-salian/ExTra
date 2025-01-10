@@ -55,7 +55,9 @@ expensesRouter.post('/addExpense',async (c) => {
   }
   catch(e){
     c.status(404)
-    return c.json({message:"An error occured"})
+    return c.json({
+      error : e instanceof Error ? e.message : e,
+      message:"An error occured"})
   }
   })
 
@@ -110,7 +112,9 @@ expensesRouter.post('/updateExpense',async (c) => {
       })
     }
     catch(e){
-      return c.json({message:"An error occured in updatting"})
+      return c.json({
+        e,
+        message:"An error occured in updatting"})
     }
     })
 
