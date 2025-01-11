@@ -17,6 +17,14 @@ import {
     DrawerTrigger,
   } from "@/components/ui/drawer"
 import { BACKEND_URL } from '@/config';
+import { CalendarComponent } from "@/components/calenderComponent"
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+
 
   interface data {
     "food"?: string;
@@ -87,7 +95,15 @@ export const Maindashboard = () => {
                 Dashboard
             </div>
             <div className="absolute top-20 right-24 w-fit p-2 border border-gray-500 rounded font-bold text-white transition-all duration-200 hover:text-cyan-500 hover:border-cyan-600 hover:translate-x-1">
-                {mmddyyyy}
+                <Dialog>
+                <DialogTrigger>{mmddyyyy}</DialogTrigger>
+                <DialogContent className="bg-black text-cyan-500">
+                  <DialogHeader>
+                    <CalendarComponent/>
+                  </DialogHeader>
+                </DialogContent>
+              </Dialog>
+
             </div>
             <div className="pt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-4 px-6">
                 <div className="">
