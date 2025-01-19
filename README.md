@@ -113,4 +113,3 @@ Start taking control of your finances today with **Budget Tracker**! 😊
 
 --- 
 
-This README provides a comprehensive overview of your project, highlighting its features, tech stack, and usage instructions.
